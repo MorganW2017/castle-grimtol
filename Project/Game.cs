@@ -223,7 +223,9 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
             var room3 = new Room ("3", "A small room with 2 doors. 2 ways to go.");
             var room4 = new Room ("4", @"
             There seems to be a computer sitting atop a desk with a chair, waiting to be used. 
-            The computer somehow has power. 
+            The computer somehow has power. You approach the device, knowing what you must do.
+            You insert the Skeleton Key into the device and crack lifes greatest mysteries.
+            
             You may also go Left and return to the previous room.");
             room1.Exits.Add ("right", room2);
             room2.Exits.Add ("left", room1);
@@ -233,7 +235,7 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
             room4.Exits.Add ("left", room3);
             ActiveRoom = room1;
             var key = new Item ("Digital Skeleton Key", "Last I checked. P vs NP was not solved. This item is VERY valuable.");
-            var trophy = new Item ("Victory", "Yes this is finally within your grasp! You won by the by...");
+            var trophy = new Item ("Victory", "Yes, this is finally within your grasp! You won by the by...");
             room3.Items.Add (key);
             room4.Items.Add (trophy);
         }
