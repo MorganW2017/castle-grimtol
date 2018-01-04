@@ -178,10 +178,11 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                 ");
             System.Console.WriteLine ("ActiveRoom: " + ActiveRoom.Name + " ");
             System.Console.WriteLine (ActiveRoom.Description);
-            foreach (var exit in ActiveRoom.Exits) {
-                System.Console.Write (exit.Key + @"/
-                
+            Console.WriteLine (@"
+-----Possible Directions------
                 ");
+            foreach (var exit in ActiveRoom.Exits) {
+                System.Console.Write (exit.Key + @" || ");
             }
             System.Console.WriteLine (@"
                                      ___ _____ _____ __  __ ____                                                                                                  
@@ -192,7 +193,11 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                                                                                                                                                                   
             ");
             foreach (var item in ActiveRoom.Items) {
-                System.Console.Write ($"{item.Name}");
+                System.Console.Write ($@"
+                {item.Name} || {item.Description}
+
+
+                ");
             }
         }
 
@@ -213,10 +218,13 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
             throw new System.NotImplementedException ();
         }
         public void Setup () {
-            var room1 = new Room ("1", "A small room with only 1 door. Only 1 way to go. Right");
+            var room1 = new Room ("1", "A small room with only 1 door. Only 1 way to go.");
             var room2 = new Room ("2", "A small room with 2 doors. 2 ways to go.");
             var room3 = new Room ("3", "A small room with 2 doors. 2 ways to go.");
-            var room4 = new Room ("4", "There seems to be a computer sitting atop a desk with a chair, waiting to be used. The computer somehow has power. You may also go Left and return to the previous room.");
+            var room4 = new Room ("4", @"
+            There seems to be a computer sitting atop a desk with a chair, waiting to be used. 
+            The computer somehow has power. 
+            You may also go Left and return to the previous room.");
             room1.Exits.Add ("right", room2);
             room2.Exits.Add ("left", room1);
             room2.Exits.Add ("right", room3);
@@ -224,8 +232,10 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
             room3.Exits.Add ("right", room4);
             room4.Exits.Add ("left", room3);
             ActiveRoom = room1;
-            var key = new Item ("Digital Skeleton Key", "Last I checked. P v NP was not solved. This item is VERY valuable.");
+            var key = new Item ("Digital Skeleton Key", "Last I checked. P vs NP was not solved. This item is VERY valuable.");
+            var trophy = new Item ("Victory", "Yes this is finally within your grasp! You won by the by...");
             room3.Items.Add (key);
+            room4.Items.Add (trophy);
         }
         private void TakeItem (string itemName) {
             var Item = ActiveRoom.Items.Find (item => item.Name == itemName);
