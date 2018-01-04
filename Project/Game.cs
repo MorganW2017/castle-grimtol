@@ -97,11 +97,13 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         Console.WriteLine (@" 
                         Possible Commands
                         -------------------------
-                        Look around\t\t!look
-                        Go Left\t\t\t!left
-                        Go Right\t\t!right
-                        Clear the console\t!clear
-                        Exit Game\t\t!exit
+                        Look around         !look
+                        Inventory           !gear
+                        Take                !take
+                        Go Left             !left
+                        Go Right            !right
+                        Clear the console   !clear
+                        Exit Game           !exit
                         -------------------------
                         Easter egg conversations.
                         -------------------------
@@ -225,7 +227,7 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
             There seems to be a computer sitting atop a desk with a chair, waiting to be used. 
             The computer somehow has power. You approach the device, knowing what you must do.
             You insert the Skeleton Key into the device and crack lifes greatest mysteries.
-            
+
             You may also go Left and return to the previous room.");
             room1.Exits.Add ("right", room2);
             room2.Exits.Add ("left", room1);
