@@ -111,7 +111,7 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         Console.WriteLine ("Go Right\t\t!right");
                         Console.WriteLine ("Clear the console\t!clear");
                         Console.WriteLine ("Exit Game\t\t!exit");
-                        Console.WriteLine ("To start an easter egg conversation. Type - no || what || gg");
+                        Console.WriteLine ("Easter egg conversations. Type - no || what || gg");
                         Console.WriteLine ("");
                         continue;
                     case "!start":
@@ -121,7 +121,8 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         game.Run ();
                         break;
                     default:
-                        Console.WriteLine ("Invalid input... Do you need help? Type !help for help.");
+                        Console.WriteLine (@"Invalid input... Do you need help? 
+                        Type !help for help.");
                         Console.WriteLine ("");
                         continue;
                 }

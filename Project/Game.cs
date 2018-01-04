@@ -9,34 +9,12 @@ namespace CastleGrimtol.Project {
         public Player Character { get; set; }
 
         public void Run () {
-            Console.Clear ();
-            System.Console.WriteLine ("");
-            System.Console.WriteLine (@"
-                
- ▄████▄  ▄▄▄       ██████▄▄▄█████▓██▓   ▓█████         ▄████ ██▀███   ██ ▓███▄ ▄███▄▄▄█████▓▒█████  ██▓    
-▒██▀ ▀█ ▒████▄   ▒██    ▒▓  ██▒ ▓▓██▒   ▓█   ▀        ██▒ ▀█▓██ ▒ ██▓ ██ ▓██▒▀█▀ ██▓  ██▒ ▓▒██▒  ██▓██▒    
-▒▓█    ▄▒██  ▀█▄ ░ ▓██▄  ▒ ▓██░ ▒▒██░   ▒███         ▒██░▄▄▄▓██ ░▄█ ▒ ██ ▓██    ▓██▒ ▓██░ ▒▒██░  ██▒██░    
-▒▓▓▄ ▄██░██▄▄▄▄██  ▒   ██░ ▓██▓ ░▒██░   ▒▓█  ▄       ░▓█  ██▒██▀▀█▄ ░ ██ ▒██    ▒██░ ▓██▓ ░▒██   ██▒██░    
-▒ ▓███▀ ░▓█   ▓██▒██████▒▒ ▒██▒ ░░██████░▒████▒      ░▒▓███▀░██▓ ▒██░ ██ ▒██▒   ░██▒ ▒██▒ ░░ ████▓▒░██████▒
-░ ░▒ ▒  ░▒▒   ▓▒█▒ ▒▓▒ ▒ ░ ▒ ░░  ░ ▒░▓  ░░ ▒░ ░       ░▒   ▒░ ▒▓ ░▒▓░ ▓  ░ ▒░   ░  ░ ▒ ░░  ░ ▒░▒░▒░░ ▒░▓  ░
-  ░  ▒    ▒   ▒▒ ░ ░▒  ░ ░   ░   ░ ░ ▒  ░░ ░  ░        ░   ░  ░▒ ░ ▒░ ▒  ░  ░      ░   ░     ░ ▒ ▒░░ ░ ▒  ░
-░         ░   ▒  ░  ░  ░   ░       ░ ░     ░         ░ ░   ░  ░░   ░  ▒  ░      ░    ░     ░ ░ ░ ▒   ░ ░   
-░ ░           ░  ░     ░             ░  ░  ░  ░            ░   ░      ░        ░              ░ ░     ░  ░
-░                                                                      
-                                  
-                ");
-            System.Console.WriteLine ("ActiveRoom: " + ActiveRoom.Name + " ");
-            System.Console.WriteLine (ActiveRoom.Description);
-            Console.WriteLine ("Go Left\t\t\t!left");
-            Console.WriteLine ("Go Right\t\t!right");
+            DisplayActiveRoom ();
             string input;
             Running = true;
             while (Running) {
                 input = handleInput ();
                 Console.Clear ();
-                foreach (var exit in ActiveRoom.Exits) {
-                    System.Console.Write (exit.Key + "/");
-                }
                 switch (input.ToLower ()) {
                     case "!exit":
                         Console.Clear ();
@@ -70,7 +48,7 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         Console.WriteLine ("");
                         continue;
                     case "gg":
-                        Console.WriteLine ("Dude, you won the game. *cough CHEATER cough cough*");
+                        Console.WriteLine (Character.Name + ", you won the game. *cough CHEATER cough cough*");
                         Console.WriteLine ("");
                         continue;
                     case "yo":
@@ -99,7 +77,7 @@ Uhhh, why don't you just move along before this gets more awkward.
                         Console.WriteLine ("What do you mean what? Win the game already and give my creator a good grade! @_@");
                         Console.WriteLine ("");
                         continue;
-                    case "inv":
+                    case "!gear":
                         if (Character.Inventory.Count == 0) {
                             Console.WriteLine ();
                             Console.WriteLine ("RIP, nothing");
@@ -111,12 +89,13 @@ Uhhh, why don't you just move along before this gets more awkward.
                             }
                         }
                         continue;
-                    case "take":
-                        foreach (var item in ActiveRoom.Items) {
-                            System.Console.Write ($"{item.Name} \"{item.Description}\" | ");
-                        }
+                    case "!look":
+                        DisplayActiveRoom ();
                         continue;
-                    case "leave":
+                    case "!take":
+                        TakeItem (Console.ReadLine ());
+                        continue;
+                    case "!leave":
                         if (ActiveRoom.Name == "4") {
                             if (Character.Inventory.Find (item => item.Name == "trophy") != null) {
                                 Console.WriteLine ("GG " + Character.Name);
@@ -128,14 +107,14 @@ Uhhh, why don't you just move along before this gets more awkward.
                         } else { continue; }
                     case "!help":
                         Console.WriteLine ("");
-                        Console.WriteLine ("What do you want " + Character.Name + "? You barely started the game and you need the GM's assistance?! PFFFFF...");
+                        Console.WriteLine ("What do you want " + Character.Name + "? You barely started the game and you need the GM's assistance ALREADY?! PFFFFF...");
                         Console.WriteLine ("Look around\t\t!look");
                         Console.WriteLine ("Use item\t\t!item");
                         Console.WriteLine ("Go Left\t\t\t!left");
                         Console.WriteLine ("Go Right\t\t!right");
                         Console.WriteLine ("Clear the console\t!clear");
                         Console.WriteLine ("Exit Game\t\t!exit");
-                        Console.WriteLine ("To start an easter egg conversation. Type - no || what || gg");
+                        Console.WriteLine ("Easter egg conversations. Type - no || what || gg");
                         Console.WriteLine ("");
                         continue;
                     case "!left":
@@ -145,22 +124,53 @@ Uhhh, why don't you just move along before this gets more awkward.
                         go ("right");
                         continue;
                     default:
-                        Console.WriteLine ("Invalid input... Do you need help? Type !help for help.");
+                        Console.WriteLine (@"Invalid input... Do you need help? 
+                        Type !help for help.");
                         continue;
                 }
             }
         }
+        private void DisplayActiveRoom () {
+            Console.Clear ();
+            System.Console.WriteLine ("");
+            System.Console.WriteLine (@"
+                
+ ▄████▄  ▄▄▄       ██████▄▄▄█████▓██▓   ▓█████         ▄████ ██▀███   ██ ▓███▄ ▄███▄▄▄█████▓▒█████  ██▓    
+▒██▀ ▀█ ▒████▄   ▒██    ▒▓  ██▒ ▓▓██▒   ▓█   ▀        ██▒ ▀█▓██ ▒ ██▓ ██ ▓██▒▀█▀ ██▓  ██▒ ▓▒██▒  ██▓██▒    
+▒▓█    ▄▒██  ▀█▄ ░ ▓██▄  ▒ ▓██░ ▒▒██░   ▒███         ▒██░▄▄▄▓██ ░▄█ ▒ ██ ▓██    ▓██▒ ▓██░ ▒▒██░  ██▒██░    
+▒▓▓▄ ▄██░██▄▄▄▄██  ▒   ██░ ▓██▓ ░▒██░   ▒▓█  ▄       ░▓█  ██▒██▀▀█▄ ░ ██ ▒██    ▒██░ ▓██▓ ░▒██   ██▒██░    
+▒ ▓███▀ ░▓█   ▓██▒██████▒▒ ▒██▒ ░░██████░▒████▒      ░▒▓███▀░██▓ ▒██░ ██ ▒██▒   ░██▒ ▒██▒ ░░ ████▓▒░██████▒
+░ ░▒ ▒  ░▒▒   ▓▒█▒ ▒▓▒ ▒ ░ ▒ ░░  ░ ▒░▓  ░░ ▒░ ░       ░▒   ▒░ ▒▓ ░▒▓░ ▓  ░ ▒░   ░  ░ ▒ ░░  ░ ▒░▒░▒░░ ▒░▓  ░
+  ░  ▒    ▒   ▒▒ ░ ░▒  ░ ░   ░   ░ ░ ▒  ░░ ░  ░        ░   ░  ░▒ ░ ▒░ ▒  ░  ░      ░   ░     ░ ▒ ▒░░ ░ ▒  ░
+░         ░   ▒  ░  ░  ░   ░       ░ ░     ░         ░ ░   ░  ░░   ░  ▒  ░      ░    ░     ░ ░ ░ ▒   ░ ░   
+░ ░           ░  ░     ░             ░  ░  ░  ░            ░   ░      ░        ░              ░ ░     ░  ░
+░                                                                      
+                                  
+                ");
+            System.Console.WriteLine ("ActiveRoom: " + ActiveRoom.Name + " ");
+            System.Console.WriteLine (ActiveRoom.Description);
+            foreach (var exit in ActiveRoom.Exits) {
+                System.Console.Write (exit.Key + @"/
+                
+                ");
+            }
+            System.Console.WriteLine (@"
+                                     ___ _____ _____ __  __ ____                                                                                                  
+                                    |_ _|_   _| ____|  \/  / ___|                                                                                                 
+  _____ _____ _____ _____ _____ _____| |  | | |  _| | |\/| \___ \ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ 
+ |_____|_____|_____|_____|_____|_____| |  | | | |___| |  | |___) |_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|
+                                    |___| |_| |_____|_|  |_|____/                                                                                                 
+                                                                                                                                                                  
+            ");
+            foreach (var item in ActiveRoom.Items) {
+                System.Console.Write ($"{item.Name}");
+            }
+        }
+
         public void go (string direction) {
-            if (direction == "left") {
-                var newRoom = ActiveRoom.Exits["left"];
-                ActiveRoom = newRoom;
-                System.Console.WriteLine (ActiveRoom);
-                return;
-            } else if (direction == "right") {
-                var newRoom = ActiveRoom.Exits["right"];
-                ActiveRoom = newRoom;
-                System.Console.WriteLine (ActiveRoom);
-                return;
+            if (ActiveRoom.Exits.ContainsKey (direction)) {
+                ActiveRoom = ActiveRoom.Exits[direction];
+                DisplayActiveRoom ();
             } else {
                 Console.WriteLine ("Invalid input... Do you need help? Type !help for help.");
                 return;
@@ -186,11 +196,9 @@ Uhhh, why don't you just move along before this gets more awkward.
             room4.Exits.Add ("left", room3);
             ActiveRoom = room1;
             var key = new Item ("Digital Skeleton Key", "Last I checked. P v NP was not solved. This item is VERY valuable.");
-            var trophy = new Item ("trophy", "trophy!");
             room3.Items.Add (key);
-            room3.Items.Add (trophy);
         }
-        public void take (string itemName) {
+        private void TakeItem (string itemName) {
             var Item = ActiveRoom.Items.Find (item => item.Name == itemName);
             if (Item != null) {
                 Character.Inventory.Add (Item);
