@@ -65,15 +65,19 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         Console.WriteLine ("Did we NOT just start the game? What does it say at the top of the screen huh? Sheesh... Noob...");
                         Console.WriteLine ("");
                         continue;
-                    case "go":
-                        Console.WriteLine ("go...");
+                    case "42":
+                        Console.WriteLine (@"
+By google's definition, you have solved the meaning to life and everything else that concerns you.
+Too bad though, this castle doesn't give two sticks about your google magic. As you were...
+                        ");
                         Console.WriteLine ("");
                         continue;
-                    case "so":
-                        Console.WriteLine ("So...");
+                    case "asl?":
+                        Console.WriteLine (@"
+I know where you're going with this... 
+Don't... Just leave before I call the FBI...");
                         Console.WriteLine ("");
                         continue;
-
                     case "hello":
                         Console.WriteLine ("Hello there! Thanks for dropping by. It can get really lonely around here since the admin doesn't update this stuff too often. RIP");
                         Console.WriteLine ("");
@@ -110,6 +114,8 @@ Easter egg conversations.
 no
 why
 this is lame
+42
+asl?
 gg
 yo
 where am i?
