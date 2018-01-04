@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-
 namespace CastleGrimtol.Project
 {
     public interface IRoom
@@ -9,6 +8,5 @@ namespace CastleGrimtol.Project
         List<Item> Items { get; set; }
 
         void UseItem(Item item);
-
     }
 }
