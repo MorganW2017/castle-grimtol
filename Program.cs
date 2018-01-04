@@ -99,19 +99,32 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         Console.WriteLine ("");
                         continue;
                     case "dude":
-                        Console.WriteLine ("What do you mean what? Win the game already and give my creator a good grade! @_@");
+                        Console.WriteLine ("Don't dude me! I don't even think " + player1.Name + " is your real name. That's right... I'm onto you...");
                         Console.WriteLine ("");
                         continue;
                     case "!help":
-                        Console.WriteLine ("");
-                        Console.WriteLine ("What do you want " + player1.Name + "? You barely started the game and you need the GM's assistance?! PFFFFF...");
-                        Console.WriteLine ("Look around\t\t!look");
-                        Console.WriteLine ("Use item\t\t!item");
-                        Console.WriteLine ("Go Left\t\t\t!left");
-                        Console.WriteLine ("Go Right\t\t!right");
-                        Console.WriteLine ("Clear the console\t!clear");
-                        Console.WriteLine ("Exit Game\t\t!exit");
-                        Console.WriteLine ("Easter egg conversations. Type - no || what || gg");
+                        Console.WriteLine (@" 
+                        Possible Commands
+                        -------------------------
+                        Look around\t\t!look
+                        Go Left\t\t\t!left
+                        Go Right\t\t!right
+                        Clear the console\t!clear
+                        Exit Game\t\t!exit
+                        -------------------------
+                        Easter egg conversations.
+                        -------------------------
+                        no
+                        why
+                        this is lame
+                        gg
+                        yo
+                        where am i?
+                        hello
+                        hi
+                        what
+                        dude
+                        ");
                         Console.WriteLine ("");
                         continue;
                     case "!start":

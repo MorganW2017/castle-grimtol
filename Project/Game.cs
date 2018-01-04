@@ -47,34 +47,75 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         Console.WriteLine ("Because if you don't play along, you'll lose the game. ^_^\t\t type - that's lame");
                         Console.WriteLine ("");
                         continue;
+                    case "this is lame":
+                        Console.WriteLine ("Ok that's it. If you don't want to play along, I'll just end the game right here.");
+                        Console.WriteLine ("Goodbye " + Character.Name + ". You lost the game for... Reasons...");
+                        Console.WriteLine ("");
+                        System.Environment.Exit (0);
+                        continue;
                     case "gg":
-                        Console.WriteLine (Character.Name + ", you won the game. *cough CHEATER cough cough*");
+                        Console.WriteLine ("Dude, you won the game. *cough CHEATER cough cough*");
                         Console.WriteLine ("");
                         continue;
                     case "yo":
                         Console.WriteLine ("Yo...");
                         Console.WriteLine ("");
                         continue;
+                    case "where am i?":
+                        Console.WriteLine ("Did we NOT just start the game? What does it say at the top of the screen huh? Sheesh... Noob...");
+                        Console.WriteLine ("");
+                        continue;
+                    case "go":
+                        Console.WriteLine ("go...");
+                        Console.WriteLine ("");
+                        continue;
+                    case "so":
+                        Console.WriteLine ("So...");
+                        Console.WriteLine ("");
+                        continue;
+
                     case "hello":
                         Console.WriteLine ("Hello there! Thanks for dropping by. It can get really lonely around here since the admin doesn't update this stuff too often. RIP");
                         Console.WriteLine ("");
                         continue;
                     case "hi":
                         Console.WriteLine (@"Hi! Glad to see someone is still alive around here! Please help yourself to... 
-*looks around* Oh. Nevermind, my creator is too lazy to add furniture and snacks. 
-You can enjoy the scenery though! *Nothing but a thick fog covers the area*
-Uhhh, why don't you just move along before this gets more awkward.
-                        ");
+ *looks around* Oh. Nevermind, my creator is too lazy to add furniture and snacks. 
+ You can enjoy the scenery though! *Nothing but a thick fog covers the area*
+ Uhhh, why don't you just move along before this gets more awkward.");
                         Console.WriteLine ("");
-                        continue;
-                    case "that's lame":
-                        Console.WriteLine ("Ok that's it. If you don't want to play along, I'll just end the game right here.");
-                        Console.WriteLine ("Goodbye... " + Character.Name + ". You lose the game... For reasons...");
-                        Console.WriteLine ("");
-                        System.Environment.Exit (0);
                         continue;
                     case "what":
                         Console.WriteLine ("What do you mean what? Win the game already and give my creator a good grade! @_@");
+                        Console.WriteLine ("");
+                        continue;
+                    case "dude":
+                        Console.WriteLine ("Don't dude me! I don't even think " + Character.Name + " is your real name. That's right... I'm onto you...");
+                        Console.WriteLine ("");
+                        continue;
+                    case "!help":
+                        Console.WriteLine (@" 
+                        Possible Commands
+                        -------------------------
+                        Look around\t\t!look
+                        Go Left\t\t\t!left
+                        Go Right\t\t!right
+                        Clear the console\t!clear
+                        Exit Game\t\t!exit
+                        -------------------------
+                        Easter egg conversations.
+                        -------------------------
+                        no
+                        why
+                        this is lame
+                        gg
+                        yo
+                        where am i?
+                        hello
+                        hi
+                        what
+                        dude
+                        ");
                         Console.WriteLine ("");
                         continue;
                     case "!gear":
@@ -105,18 +146,6 @@ Uhhh, why don't you just move along before this gets more awkward.
                                 continue;
                             }
                         } else { continue; }
-                    case "!help":
-                        Console.WriteLine ("");
-                        Console.WriteLine ("What do you want " + Character.Name + "? You barely started the game and you need the GM's assistance ALREADY?! PFFFFF...");
-                        Console.WriteLine ("Look around\t\t!look");
-                        Console.WriteLine ("Use item\t\t!item");
-                        Console.WriteLine ("Go Left\t\t\t!left");
-                        Console.WriteLine ("Go Right\t\t!right");
-                        Console.WriteLine ("Clear the console\t!clear");
-                        Console.WriteLine ("Exit Game\t\t!exit");
-                        Console.WriteLine ("Easter egg conversations. Type - no || what || gg");
-                        Console.WriteLine ("");
-                        continue;
                     case "!left":
                         go ("left");
                         continue;
