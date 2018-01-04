@@ -95,28 +95,28 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         continue;
                     case "!help":
                         Console.WriteLine (@" 
-                        Possible Commands
-                        -------------------------
-                        Look around         !look
-                        Inventory           !gear
-                        Take                !take
-                        Go Left             !left
-                        Go Right            !right
-                        Clear the console   !clear
-                        Exit Game           !exit
-                        -------------------------
-                        Easter egg conversations.
-                        -------------------------
-                        no
-                        why
-                        this is lame
-                        gg
-                        yo
-                        where am i?
-                        hello
-                        hi
-                        what
-                        dude
+Possible Commands
+-------------------------
+Look around         !look
+Inventory           !gear
+Take                !take
+Go Left             !left
+Go Right            !right
+Clear the console   !clear
+Exit Game           !exit
+-------------------------
+Easter egg conversations.
+-------------------------
+no
+why
+this is lame
+gg
+yo
+where am i?
+hello
+hi
+what
+dude
                         ");
                         Console.WriteLine ("");
                         continue;
