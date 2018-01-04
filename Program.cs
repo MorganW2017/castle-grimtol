@@ -84,7 +84,8 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                     case "42":
                         Console.WriteLine (@"
 By google's definition, you have solved the meaning to life and everything else that concerns you.
-Too bad though, this castle doesn't give two sticks about your google magic. As you were...
+Too bad though, this castle doesn't give two sticks about your google magic.
+As you were Adventurer...
                         ");
                         Console.WriteLine ("");
                         continue;
