@@ -117,6 +117,9 @@ hello
 hi
 what
 dude
+-------------------------
+You may now return to your regularly scheduled adventure.
+Type !look when you are ready to continue
                         ");
                         Console.WriteLine ("");
                         continue;
