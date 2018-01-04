@@ -34,7 +34,7 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                                                                 
                                                                 ");
                         Console.WriteLine ("");
-                        System.Environment.Exit (0);
+                        Environment.Exit (0);
                         continue;
                     case "!clear":
                         Console.Clear ();
@@ -51,7 +51,7 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                         Console.WriteLine ("Ok that's it. If you don't want to play along, I'll just end the game right here.");
                         Console.WriteLine ("Goodbye " + Character.Name + ". You lost the game for... Reasons...");
                         Console.WriteLine ("");
-                        System.Environment.Exit (0);
+                        Environment.Exit (0);
                         continue;
                     case "gg":
                         Console.WriteLine ("Dude, you won the game. *cough CHEATER cough cough*");
@@ -152,7 +152,7 @@ Type !look when you are ready to continue
                         if (ActiveRoom.Name == "4") {
                             if (Character.Inventory.Find (item => item.Name == "trophy") != null) {
                                 Console.WriteLine ("GG " + Character.Name);
-                                System.Environment.Exit (0);
+                                Environment.Exit (0);
                                 continue;
                             } else {
                                 continue;
@@ -173,8 +173,8 @@ Type !look when you are ready to continue
         }
         private void DisplayActiveRoom () {
             Console.Clear ();
-            System.Console.WriteLine ("");
-            System.Console.WriteLine (@"
+            Console.WriteLine ("");
+            Console.WriteLine (@"
                 
  ▄████▄  ▄▄▄       ██████▄▄▄█████▓██▓   ▓█████         ▄████ ██▀███   ██ ▓███▄ ▄███▄▄▄█████▓▒█████  ██▓    
 ▒██▀ ▀█ ▒████▄   ▒██    ▒▓  ██▒ ▓▓██▒   ▓█   ▀        ██▒ ▀█▓██ ▒ ██▓ ██ ▓██▒▀█▀ ██▓  ██▒ ▓▒██▒  ██▓██▒    
@@ -188,15 +188,15 @@ Type !look when you are ready to continue
 ░                                                                      
                                   
                 ");
-            System.Console.WriteLine ("ActiveRoom: " + ActiveRoom.Name + " ");
-            System.Console.WriteLine (ActiveRoom.Description);
+            Console.WriteLine ("ActiveRoom: " + ActiveRoom.Name + " ");
+            Console.WriteLine (ActiveRoom.Description);
             Console.WriteLine (@"
 -----Possible Directions------
                 ");
             foreach (var exit in ActiveRoom.Exits) {
-                System.Console.Write (exit.Key + @" || ");
+                Console.Write (exit.Key + @" || ");
             }
-            System.Console.WriteLine (@"
+            Console.WriteLine (@"
                                      ___ _____ _____ __  __ ____                                                                                                  
                                     |_ _|_   _| ____|  \/  / ___|                                                                                                 
   _____ _____ _____ _____ _____ _____| |  | | |  _| | |\/| \___ \ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ 
@@ -205,7 +205,7 @@ Type !look when you are ready to continue
                                                                                                                                                                   
             ");
             foreach (var item in ActiveRoom.Items) {
-                System.Console.Write ($@"
+                Console.Write ($@"
                 {item.Name} || {item.Description}
 
 
@@ -223,8 +223,8 @@ Type !look when you are ready to continue
             }
         }
         public string handleInput () {
-            System.Console.Write ("~");
-            return System.Console.ReadLine ();
+            Console.Write ("~");
+            return Console.ReadLine ();
         }
         public void Reset () {
             throw new System.NotImplementedException ();

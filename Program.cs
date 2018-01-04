@@ -8,7 +8,7 @@ namespace CastleGrimtol {
             // Do fancy
             game.Setup ();
             Console.Clear ();
-            System.Console.WriteLine ("Name your person thingy:");
+            Console.WriteLine ("Name your person thingy:");
             var input3 = game.handleInput ();
             var player1 = new Player (input3);
             Console.WriteLine ("");
@@ -56,7 +56,7 @@ $$ |  $$ |  $$ |     $$ |         $$ |  $$ |$$ |  $$ |$$ |  $$ |
                                                                 
                                                                 ");
                         Console.WriteLine ("");
-                        System.Environment.Exit (0);
+                        Environment.Exit (0);
                         continue;
                     case "!clear":
                         Console.Clear ();
@@ -110,7 +110,7 @@ Don't... Just leave before I call the FBI...");
                         Console.WriteLine ("Ok that's it. If you don't want to play along, I'll just end the game right here.");
                         Console.WriteLine ("Goodbye " + player1.Name + ". You lost the game for... Reasons...");
                         Console.WriteLine ("");
-                        System.Environment.Exit (0);
+                        Environment.Exit (0);
                         continue;
                     case "what":
                         Console.WriteLine ("What do you mean what? Win the game already and give my creator a good grade! @_@");
