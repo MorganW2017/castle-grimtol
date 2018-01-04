@@ -121,26 +121,29 @@ Don't... Just leave before I call the FBI...");
                         continue;
                     case "!help":
                         Console.WriteLine (@" 
-                        Possible Commands
-                        -------------------------
-                        Look around\t\t!look
-                        Go Left\t\t\t!left
-                        Go Right\t\t!right
-                        Clear the console\t!clear
-                        Exit Game\t\t!exit
-                        -------------------------
-                        Easter egg conversations.
-                        -------------------------
-                        no
-                        why
-                        this is lame
-                        gg
-                        yo
-                        where am i?
-                        hello
-                        hi
-                        what
-                        dude
+Possible Commands
+-------------------------
+Start the game!!!   !start
+Clear the console   !clear
+Exit Game           !exit
+-------------------------
+Easter egg conversations.
+-------------------------
+no
+why
+this is lame
+42
+asl?
+gg
+yo
+where am i?
+hello
+hi
+what
+dude
+-------------------------
+You may now return to your regularly scheduled adventure.
+Type !start when you are ready to continue
                         ");
                         Console.WriteLine ("");
                         continue;
